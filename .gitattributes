@@ -1,0 +1,6 @@
+main/generated/* linguist-generated=true
+main/font_*.c linguist-generated=true
+components/** linguist-vendored=true
+docs/assets/* binary
+*.png binary
+*.CJP binary
