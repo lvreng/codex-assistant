@@ -69,7 +69,7 @@ def archive(path,entries,prefix):
 
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument("--assets-root",type=Path,required=True);p.add_argument("--output",type=Path,default=ROOT/"dist");a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument("--assets-root",type=Path,required=True);p.add_argument("--output",type=Path,default=ROOT/"dist");p.add_argument("--reuse-sd",action="store_true",help="Reuse an existing SD ZIP only after verifying its previous report and all original inputs");a=p.parse_args()
     a.output.mkdir(parents=True,exist_ok=True)
     tracked=subprocess.check_output(["git","ls-files","-z"],cwd=ROOT).decode().split("\0")
     entries={name:ROOT/name for name in tracked if name}
@@ -127,7 +127,13 @@ def main():
         "9 段循环 + 27 段转场 + 3 段独立星光；原始文件字节未改变。\n"
         "先备份，不格式化，不覆盖其他个人文件。安全弹出后将卡插回断电设备。\n"
         "Linux 可在解压目录运行 sha256sum -c MANIFEST.sha256 校验。\n").encode()
-    report.append(archive(a.output/"codex-assistant-sd.zip",media,"sd-card"))
+    if a.reuse_sd:
+        previous=json.loads((a.output/"release-report.json").read_text())
+        record=next(r for r in previous if r["file"]=="codex-assistant-sd.zip")
+        path=a.output/record["file"]
+        if path.stat().st_size!=record["bytes"] or digest(path)!=record["sha256"]:raise ValueError("Existing SD ZIP differs from verified report")
+        report.append(record);print("REUSE VERIFIED | SD ZIP and original inputs unchanged",flush=True)
+    else:report.append(archive(a.output/"codex-assistant-sd.zip",media,"sd-card"))
     report.append(archive(a.output/"codex-assistant-source.zip",entries,"codex-assistant"))
     (a.output/"SHA256SUMS").write_text("".join(f"{r['sha256']}  {r['file']}\n" for r in report))
     (a.output/"release-report.json").write_bytes(encoded(report))

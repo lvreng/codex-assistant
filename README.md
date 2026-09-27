@@ -10,6 +10,7 @@ ESP32-P4 屏幕上的 Codex 工作伙伴。会话、进度、用量与模型，�
 ![LVGL](https://img.shields.io/badge/LVGL-9.2.2-5264a6?style=flat-square)
 ![Host](https://img.shields.io/badge/Host-Linux-777777?style=flat-square)
 ![Local](https://img.shields.io/badge/Animation-SD_Local-e0ac4b?style=flat-square)
+[![License](https://img.shields.io/badge/License-MIT-59a486?style=flat-square)](LICENSE)
 
 [下载安装](https://github.com/lvreng/codex-assistant/releases/latest) · [快速开始](#快速开始) · [使用指南](docs/SETUP.md) · [硬件与构建](docs/HARDWARE.md)
 
