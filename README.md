@@ -23,16 +23,21 @@ ESP32-P4 屏幕上的 Codex 工作伙伴。会话、进度、用量与模型，�
 一套主题，四种天体。根据当前会话的模型自动选择，工作与完成各有自己的节奏。
 动画从 **ESP32 的 SD 卡本地播放**，电脑只同步状态，不传视频帧。
 
-<table>
-<tr>
-<td width="50%" align="center"><img src="docs/assets/luna.gif" alt="Luna 月相动态展示" width="410"><br><b>Luna · 月相轮转</b><br>从圆缺变化，看见思考的节奏。</td>
-<td width="50%" align="center"><img src="docs/assets/terra.gif" alt="Terra 城市光点呼吸动态展示" width="410"><br><b>Terra · 城市脉动</b><br>夜色之中，光点渐次苏醒。</td>
-</tr>
-<tr>
-<td align="center"><img src="docs/assets/sol.gif" alt="Sol 自转与日冕动态展示" width="410"><br><b>Sol · 恒星涌动</b><br>自转、日冕与缓慢释放的能量。</td>
-<td align="center"><img src="docs/assets/astra.gif" alt="Astra 群星呼吸和连接动态展示" width="410"><br><b>Astra · 群星相连</b><br>明暗之间，思绪交织。</td>
-</tr>
-</table>
+<p align="center">
+<img src="docs/assets/luna.gif" alt="Luna 月相动态展示" width="390">
+<img src="docs/assets/terra.gif" alt="Terra 城市光点呼吸动态展示" width="390">
+</p>
+
+**Luna · 月相轮转**，从圆缺变化，看见思考的节奏。<br>
+**Terra · 城市脉动**，夜色之中，光点渐次苏醒。
+
+<p align="center">
+<img src="docs/assets/sol.gif" alt="Sol 自转与日冕动态展示" width="390">
+<img src="docs/assets/astra.gif" alt="Astra 群星呼吸和连接动态展示" width="390">
+</p>
+
+**Sol · 恒星涌动**，自转、日冕与缓慢释放的能量。<br>
+**Astra · 群星相连**，明暗之间，思绪交织。
 
 <p align="center"><img src="docs/assets/camera.gif" width="840" alt="思想者星体运镜，星体与群星平滑切换"></p>
 <p align="center"><sub>真实项目素材的无声预览。网页动图已缩小降帧以便加载，设备 SD 素材保持原始分辨率和编码。</sub></p>
